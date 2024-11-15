@@ -1,7 +1,8 @@
+package operations
+
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
-import java.io.File
 
 class ParallelOperations {
 
@@ -57,12 +58,6 @@ class ParallelOperations {
         distribution: List<Int>,
         operation: suspend (lines: List<String>, operationOperand: T) -> (MutableList<T>),
     ) = runBlocking {
-
-
-        /*distribution.forEachIndexed { index, size ->
-            val start = distribution.take(index).sum
-            val end = start + size
-        }*/
 
         val jobs = mutableListOf<Job>()
         var startIndex = 0
