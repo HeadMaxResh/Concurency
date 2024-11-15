@@ -1,28 +1,8 @@
-import java.io.File
+package operations
 
 class MathOperations {
 
     companion object {
-
-        /*fun multiply(filePath: String, multiplier: Int): MutableList<Int> {
-            val results = mutableListOf<Int>()
-
-            File(filePath).forEachLine { line ->
-                val number = line.toInt()
-                val result = number * multiplier
-                results.add(result.toString().toInt())
-                println(result)
-            }
-
-            return results
-
-            File(filePath).bufferedWriter().use { out ->
-                for (i in results) {
-                    out.write("$i\n")
-                }
-            }
-
-        }*/
 
         fun <T : Number> multiply(lines: List<String>, multiplier: T): MutableList<T> {
             val results = mutableListOf<T>()
@@ -31,7 +11,6 @@ class MathOperations {
                 val number = line.toInt()
                 val result = calculateMultiply(number, multiplier)
                 results.add(result)
-                //println(result)
             }
 
             return results
@@ -54,14 +33,12 @@ class MathOperations {
                 val number = line.toLong()
                 val result = number * number
                 results.add(result)
-                //println(result)
             }
 
             return results
         }
 
         private fun calculateFactorial(n: Int): Int {
-            /*return if (n <= 1) 1 else n * calculateFactorial(n - 1)*/
             if (n < 0) throw IllegalArgumentException("Факториал не определен для отрицательных чисел.")
             var result = 1
             for (i in 2..n) {
@@ -77,7 +54,6 @@ class MathOperations {
                 val number = line.toInt()
                 val result = calculateFactorial(number)
                 results.add(result)
-                //println(result)
             }
 
             return results
@@ -102,10 +78,10 @@ class MathOperations {
                 val number = line.toInt()
                 val result = calculateFibonacci(number)
                 results.add(result)
-                //println(result)
             }
             return results
         }
+
     }
 
 }
