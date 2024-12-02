@@ -1,5 +1,6 @@
 package file
 
+import config.Config
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.IOException
@@ -7,8 +8,6 @@ import java.io.IOException
 class CustomFile {
 
     companion object {
-
-        private const val DEFAULT_DIRECTORY = "C:/Users/m2002/Desktop"
 
         fun generateFile(filePath: String, countNumbers: Int): File? {
             try {
@@ -30,7 +29,7 @@ class CustomFile {
         }
 
         fun generateFile(countNumbers: Int): File {
-            val filePath = DEFAULT_DIRECTORY + "/" + Math.random().times(100).toInt()
+            val filePath = Config.DEFAULT_DIRECTORY + "/" + Math.random().times(100).toInt()
             File(filePath).bufferedWriter().use { out ->
                 for (i in 1..countNumbers) {
                     out.write("$i\n")
