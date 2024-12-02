@@ -1,5 +1,6 @@
 package scripts
 
+import config.Config
 import file.CustomFile
 import operations.MathOperations.Companion.factorial
 import operations.MathOperations.Companion.fibonacci
@@ -37,9 +38,9 @@ fun selectFileAction(): String? {
                 return null
             }
 
-            println("Введите путь для сохранения файла (по умолчанию: C:/Users/m2002/Desktop):")
+            println("Введите путь для сохранения файла (по умолчанию: ${Config.DEFAULT_DIRECTORY}:")
             val filePathInput = readLine()
-            val filePath = filePathInput?.takeIf { it.isNotBlank() } ?: "C:/Users/m2002/Desktop/$count.txt"
+            val filePath = filePathInput?.takeIf { it.isNotBlank() } ?: "${Config.DEFAULT_DIRECTORY}/$count.txt"
             CustomFile.generateFile(filePath, count)
             filePath
         }
